@@ -1,7 +1,12 @@
 import 'dart:ui';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rive/rive.dart';
+import 'package:the_ceep_app/screens/onboarding/widgets/animated_btn.dart';
+
+import '../../core/app_text.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({Key? key}) : super(key: key);
@@ -11,6 +16,16 @@ class OnboardingScreen extends StatefulWidget {
 }
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
+  late RiveAnimationController btnController;
+
+  @override
+  void initState() {
+    btnController = OneShotAnimation(
+        "active",
+      autoplay: false,
+    );
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,21 +62,36 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         children: [
                         const Spacer(),
                         SizedBox(
-                          width: 260,
+                          width: 250.w,
                             child: Column(
-                                  children: const [
-                                    Text("Pay your Bills with Ease",
-                                    style: TextStyle(
-                                    fontSize: 60,
-                                    fontWeight: FontWeight.w700,
-                                    fontFamily: "Poppins",
-                                    height: 1.2,
-                                ),
-                              ),
-                                SizedBox(height: 16),
+                                  children: [
+                                    AppText(
+                                      text: "Pay Your Bills with Ease!",
+                                      size: 65,
+                                        fontWeight: FontWeight.w600,
+                                    ),
+                                 SizedBox(height: 16.h),
+                                    AppText(
+                                      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, "
+                                          "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+                                    ),
                               ]
                             )
-                        )
+                        ),
+                          const Spacer(),
+                          AnimatedBtn(
+                              animationBtnController: btnController,
+                              pressed: () {
+                                btnController.isActive = true;
+                              }
+                          ),
+                          const Spacer(flex: 4,),
+                          const Padding(
+                            padding: EdgeInsets.symmetric(vertical: 24),
+                            child: Text(
+                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, "
+                                    "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "),
+                          )
                      ]
                   )
                 )
