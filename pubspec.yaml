@@ -32,7 +32,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  google_fonts:
+  flutter_screenutil:
   rive:
 
 
