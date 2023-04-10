@@ -7,6 +7,7 @@ import 'package:rive/rive.dart';
 import 'package:the_ceep_app/screens/onboarding/widgets/animated_btn.dart';
 
 import '../../core/app_text.dart';
+import '../auth/login_screen.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({Key? key}) : super(key: key);
@@ -21,7 +22,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   @override
   void initState() {
     btnController = OneShotAnimation(
-        "active",
+        "Timeline 1",
       autoplay: false,
     );
     super.initState();
@@ -78,14 +79,21 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                               ]
                             )
                         ),
-                          const Spacer(),
+                          const Spacer(flex: 4,),
                           AnimatedBtn(
                               animationBtnController: btnController,
                               pressed: () {
-                                btnController.isActive = true;
+                                  btnController.isActive = true;
+                                  Future.delayed(
+                                    const Duration(milliseconds: 800),
+                                    () {
+                                      Navigator.of(context).push(MaterialPageRoute(
+                                          builder: (context) => const LoginScreen()));
+                                    });
+
                               }
                           ),
-                          const Spacer(flex: 4,),
+
                           const Padding(
                             padding: EdgeInsets.symmetric(vertical: 24),
                             child: Text(
