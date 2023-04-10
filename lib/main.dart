@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:the_ceep_app/screens/onboarding/onboarding_screen.dart';
 import 'package:the_ceep_app/screens/onboarding/splashscreen.dart';
 
+import 'core/custom_theme.dart';
+
 void main() async {
   runApp(const MyApp());
 }
@@ -19,10 +21,11 @@ class MyApp extends StatelessWidget {
         splitScreenMode: true,
         builder: (context, child) {
           return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            //darkTheme: customDarkTheme(),
+            theme: customLightTheme(),
+            themeMode: ThemeMode.system,
             title: 'Flutter Demo',
-            theme: ThemeData(
-              primaryColor: Colors.blue,
-            ),
             home: const SplashScreen(),
           );
         });
