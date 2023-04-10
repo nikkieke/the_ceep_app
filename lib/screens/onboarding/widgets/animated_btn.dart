@@ -31,12 +31,12 @@ class AnimatedBtn extends StatelessWidget{
               ),
               Positioned.fill(
                 top: 8,
-                left: 55,
+                left: 45,
                 child: Row(
                   children: [
-                    const Icon(CupertinoIcons.arrow_right),
-                    const SizedBox(width: 4),
-                    AppText(text: "Welcome Back", size: 15,),
+                    const Icon(CupertinoIcons.arrow_right,color: Colors.black,),
+                    const SizedBox(width: 10),
+                    AppText(text: "Welcome Back", size: 18,color: Colors.black,),
                   ],
                 ),
               ),
