@@ -7,7 +7,7 @@ import 'package:rive/rive.dart';
 import 'package:the_ceep_app/screens/onboarding/widgets/animated_btn.dart';
 
 import '../../core/app_text.dart';
-import '../auth/login_screen.dart';
+import '../auth/custom_login_dialog.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({Key? key}) : super(key: key);
@@ -17,6 +17,7 @@ class OnboardingScreen extends StatefulWidget {
 }
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
+  bool isLoginDialogShown = false;
   late RiveAnimationController btnController;
 
   @override
@@ -55,54 +56,68 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 child: const SizedBox(),
               ),
             ),
-            SafeArea(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 32),
-                  child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                        const Spacer(),
-                        SizedBox(
-                          width: 250.w,
-                            child: Column(
-                                  children: [
-                                    AppText(
-                                      text: "Pay Your Bills with Ease!",
-                                      size: 65,
-                                        fontWeight: FontWeight.w600,
-                                    ),
-                                 SizedBox(height: 16.h),
-                                    AppText(
-                                      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, "
-                                          "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
-                                    ),
-                              ]
-                            )
-                        ),
-                          const Spacer(flex: 4,),
-                          AnimatedBtn(
-                              animationBtnController: btnController,
-                              pressed: () {
-                                  btnController.isActive = true;
-                                  Future.delayed(
-                                    const Duration(milliseconds: 800),
-                                    () {
-                                      Navigator.of(context).push(MaterialPageRoute(
-                                          builder: (context) => const LoginScreen()));
-                                    });
-
-                              }
+            AnimatedPositioned(
+              top: isLoginDialogShown? -50:0,
+              duration: const Duration(milliseconds: 240),
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
+              child: SafeArea(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 32),
+                    child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                          const Spacer(),
+                          SizedBox(
+                            width: 250.w,
+                              child: Column(
+                                    children: [
+                                      AppText(
+                                        text: "Pay Your Bills with Ease!",
+                                        size: 65,
+                                          fontWeight: FontWeight.w600,
+                                      ),
+                                   SizedBox(height: 16.h),
+                                      AppText(
+                                        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, "
+                                            "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+                                      ),
+                                ]
+                              )
                           ),
+                            const Spacer(flex: 4,),
+                            AnimatedBtn(
+                                animationBtnController: btnController,
+                                pressed: () {
+                                    btnController.isActive = true;
+                                    Future.delayed(
+                                      const Duration(milliseconds: 800),
+                                      () {
+                                        setState(() {
+                                          isLoginDialogShown = true;
+                                        });
+                                        customLoginDialog(
+                                          context, onClosed: (_){
+                                          setState(() {
+                                            isLoginDialogShown = true;
+                                          });
+                                        }
+                                        );
+                                      });
 
-                          const Padding(
-                            padding: EdgeInsets.symmetric(vertical: 24),
-                            child: Text(
-                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, "
-                                    "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "),
-                          )
-                     ]
+                                }
+                            ),
+
+                             Padding(
+                              padding: EdgeInsets.symmetric(vertical: 24),
+                              child: AppText(
+                                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, "
+                                      "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ", size: 14,),
+                            )
+                       ]
+                    )
                   )
-                )
+              ),
             ),
           ],
         ),
