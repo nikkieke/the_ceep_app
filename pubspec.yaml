@@ -35,7 +35,12 @@ dependencies:
   flutter_screenutil:
   flutter_form_builder:
   form_builder_validators:
+  flutter_svg:
   rive:
+  carousel_slider:
+  flutter_animate:
+  smooth_page_indicator:
+
 
 
   # The following adds the Cupertino Icons font to your application.
