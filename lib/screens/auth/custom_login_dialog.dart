@@ -34,56 +34,57 @@ Future<Object?>customLoginDialog(BuildContext context, {required ValueChanged on
         borderRadius:  BorderRadius.all(Radius.circular(10.r)),
       ),
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: Colors.transparent,
         body: Stack(
             clipBehavior: Clip.none,
           children: [
             SingleChildScrollView(
               child: Column(
-                children: [
-                  AuthWidgets().titleText(
-                      "Log-in"
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 16),
-                    child: AppText(
-                      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, "
-                          "sed do eiusmod tempor ",size: 15,
-                      textAlign: TextAlign.center,
+                  children: [
+                    AuthWidgets().titleText(
+                        "Log-in"
                     ),
-                  ),
-                  const LoginForm(),
-                  const Padding(padding:  EdgeInsets.symmetric(
-                  vertical: 15),
-                  child:  Divider(thickness: 1.5,)),
-                  Padding(padding: const EdgeInsets.symmetric(
-                      vertical: 5),
-                    child: AppText(text: "Log in with Apple or Google",size: 15,),
-                  ),
-                  SizedBox(
-                    width: 100.w,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        IconButton(
-                            onPressed: (){},
-                            icon: const Icon(
-                              Icons.apple,
-                              size: 50,
-                            )),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 22),
-                          child: IconButton(
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 16),
+                      child: AppText(
+                        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, "
+                            "sed do eiusmod tempor ",size: 15,
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                    const LoginForm(),
+                    const Padding(padding:  EdgeInsets.symmetric(
+                    vertical: 15),
+                    child:  Divider(thickness: 1.5,)),
+                    Padding(padding: const EdgeInsets.symmetric(
+                        vertical: 5),
+                      child: AppText(text: "Log in with Apple or Google",size: 15,),
+                    ),
+                    SizedBox(
+                      width: 100.w,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          IconButton(
                               onPressed: (){},
-                              icon: SvgPicture.asset(
-                                "assets/images/google.svg", width: 45,)
+                              icon: const Icon(
+                                Icons.apple,
+                                size: 50,
+                              )),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 22),
+                            child: IconButton(
+                                onPressed: (){},
+                                icon: SvgPicture.asset(
+                                  "assets/images/google.svg", width: 45,)
+                            ),
                           ),
-                        ),
-                        ]
-                        )
-                    ),
-                ],
-              ),
+                          ]
+                          )
+                      ),
+                  ],
+                ),
             ),
 
           ],
