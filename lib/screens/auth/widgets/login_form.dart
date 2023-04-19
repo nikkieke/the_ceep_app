@@ -4,6 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rive/rive.dart';
 
 import '../../../core/app_text.dart';
+import '../../../core/utils/rive_utils.dart';
+import '../../home/widgets/entry_point.dart';
 import 'authwidgets.dart';
 import 'button.dart';
 
@@ -23,12 +25,7 @@ class _LoginFormState extends State<LoginForm> {
   late SMITrigger error;
   late SMITrigger reset;
 
-  StateMachineController getRiveController(Artboard artboard){
-    StateMachineController? controller =
-    StateMachineController.fromArtboard(artboard, "State Machine 1");
-    artboard.addController(controller!);
-    return controller;
-  }
+
 
   void login(BuildContext context){
     setState(() {
@@ -46,6 +43,12 @@ class _LoginFormState extends State<LoginForm> {
               });
             }
             );
+            Future.delayed(const Duration(seconds: 2), () {
+              Navigator.push(context, MaterialPageRoute(
+                  builder: (context){
+                    return const EntryPoint();
+                  }));
+            });
           }
           else{
             //on error show error animation
@@ -124,7 +127,7 @@ class _LoginFormState extends State<LoginForm> {
           child: RiveAnimation.asset("assets/RiveAssets/check.riv",
             onInit: (artboard){
             StateMachineController controller =
-                getRiveController(artboard);
+                RiveUtils.getRiveController(artboard);
             check = controller.findSMI('Check') as SMITrigger;
             error = controller.findSMI('Error') as SMITrigger;
             reset = controller.findSMI('Reset') as SMITrigger;
