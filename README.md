@@ -2,6 +2,9 @@
 
 CEEP App is a fintech application designed to assist organizations in managing payments at an organizational level. Developed with Flutter, the app boasts a user-friendly interface that makes it easy for you to create a business profile, add staff members, handle payments, and manage transactions between your organization and your customers. With CEEP App, you can effortlessly keep track of all your transactions and streamline your payment processes. The app's comprehensive features enable you to stay organized, efficient, and on top of your finances.
 
+![Untitled design](https://user-images.githubusercontent.com/95222620/233794069-c5e47b10-7b2c-497c-b54b-6232b451739c.png)
+
+
 ## Features
 
 CEEP App offers a range of powerful features designed to assist organizations in managing their payments effectively and efficiently. Here are some of the key features of the app:
