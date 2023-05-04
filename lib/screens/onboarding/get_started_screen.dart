@@ -6,6 +6,7 @@ import 'package:the_ceep_app/core/app_text.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../auth/widgets/button.dart';
+import '../home/widgets/side_menu.dart';
 import 'onboarding_screen.dart';
 
 class GetStartedScreen extends StatefulWidget {
@@ -92,7 +93,8 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
               onPress: () {
                 Navigator.push(context, MaterialPageRoute(
                     builder: (context){
-                      return const OnboardingScreen();
+                      //return const OnboardingScreen();
+                      return const SideMenu();
                     }));
               },
 
