@@ -10,7 +10,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white70,
+      backgroundColor: const Color(0xffFAF9F6),
       body: SafeArea(
         bottom: false,
         child: SingleChildScrollView(
@@ -19,10 +19,10 @@ class HomeScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 50),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                      SvgPicture.asset(
-                        "assets/images/side_nav.svg", width: 30.w,),
+                      // SvgPicture.asset(
+                      //   "assets/images/side_nav.svg", width: 30.w,),
                     Row(
                       children: [
                         AppText(
