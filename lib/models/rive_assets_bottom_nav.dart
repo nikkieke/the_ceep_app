@@ -50,3 +50,13 @@ List<RiveAssets> sideMenu = [
     artboard: "REFRESH/RELOAD", stateMachineName: "RELOAD_Interactivity",
     title: 'Updates',),
 ];
+
+List<RiveAssets> sideMenu2 = [
+  RiveAssets(src: "assets/RiveAssets/icons.riv",
+    artboard: "TIMER", stateMachineName: "TIMER_Interactivity",
+    title: 'History',),
+
+    RiveAssets(src: "assets/RiveAssets/icons.riv",
+    artboard: "USER", stateMachineName: "USER_Interactivity",
+    title: 'Contacts',),
+];
