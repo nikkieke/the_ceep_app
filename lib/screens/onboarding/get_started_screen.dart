@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rive/rive.dart';
 import 'package:the_ceep_app/core/app_text.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:the_ceep_app/screens/home/widgets/entry_point.dart';
 
 import '../auth/widgets/button.dart';
 import '../home/widgets/side_menu.dart';
@@ -93,8 +94,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
               onPress: () {
                 Navigator.push(context, MaterialPageRoute(
                     builder: (context){
-                      //return const OnboardingScreen();
-                      return const SideMenu();
+                      return const OnboardingScreen();
                     }));
               },
 
