@@ -36,7 +36,7 @@ dependencies:
   flutter_form_builder:
   form_builder_validators:
   flutter_svg:
-  rive:
+  rive: ^0.9.1
   carousel_slider:
   flutter_animate:
   smooth_page_indicator:
