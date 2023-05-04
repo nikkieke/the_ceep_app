@@ -31,3 +31,22 @@ List<RiveAssets> bottomNav = [
     artboard: "REFRESH/RELOAD", stateMachineName: "RELOAD_Interactivity",
     title: 'Updates',),
 ];
+
+
+List<RiveAssets> sideMenu = [
+  RiveAssets(src: "assets/RiveAssets/icons.riv",
+    artboard: "HOME", stateMachineName: "HOME_interactivity",
+    title: 'Home',),
+
+  RiveAssets(src: "assets/RiveAssets/icons.riv",
+    artboard: "CHAT", stateMachineName: "CHAT_Interactivity",
+    title: 'Transactions',),
+
+  RiveAssets(src: "assets/RiveAssets/icons.riv",
+    artboard: "BELL", stateMachineName: "BELL_Interactivity",
+    title: 'Sales',),
+
+  RiveAssets(src: "assets/RiveAssets/icons.riv",
+    artboard: "REFRESH/RELOAD", stateMachineName: "RELOAD_Interactivity",
+    title: 'Updates',),
+];
