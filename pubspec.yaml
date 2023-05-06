@@ -40,6 +40,7 @@ dependencies:
   carousel_slider:
   flutter_animate:
   smooth_page_indicator:
+  flutter_riverpod:
 
 
 
