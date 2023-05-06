@@ -1,5 +1,6 @@
 import'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:the_ceep_app/core/app_text.dart';
 import 'package:the_ceep_app/screens/auth/widgets/authwidgets.dart';
@@ -7,7 +8,10 @@ import 'package:the_ceep_app/screens/auth/widgets/button.dart';
 import 'package:the_ceep_app/screens/auth/widgets/login_form.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-Future<Object?>customLoginDialog(BuildContext context, {required ValueChanged onClosed}){
+import '../../core/lightmode_notifier.dart';
+
+Future<Object?>customLoginDialog(BuildContext context,WidgetRef ref, {required ValueChanged onClosed}){
+  var lightMode = ref.watch(lightModeProvider);
 
   return showGeneralDialog(
     barrierDismissible: true,
@@ -25,12 +29,17 @@ Future<Object?>customLoginDialog(BuildContext context, {required ValueChanged on
       );
     },
     pageBuilder: (context, _, __) => Center(
-    child: Container(
+    child:
+    Container(
       height: 420.h,
       margin:  EdgeInsets.symmetric(horizontal: 16.r),
       padding: EdgeInsets.symmetric(horizontal: 24.r, vertical: 32.r),
-      decoration: BoxDecoration(
+      decoration: lightMode? BoxDecoration(
         color: Colors.white.withOpacity(0.98),
+        borderRadius:  BorderRadius.all(Radius.circular(10.r)),
+      ):
+      BoxDecoration(
+        color: Color(0xff121212).withOpacity(0.98),
         borderRadius:  BorderRadius.all(Radius.circular(10.r)),
       ),
       child: Scaffold(
