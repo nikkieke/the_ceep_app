@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rive/rive.dart';
 import 'package:the_ceep_app/screens/onboarding/widgets/animated_btn.dart';
@@ -9,14 +10,14 @@ import 'package:the_ceep_app/screens/onboarding/widgets/animated_btn.dart';
 import '../../core/app_text.dart';
 import '../auth/custom_login_dialog.dart';
 
-class OnboardingScreen extends StatefulWidget {
+class OnboardingScreen extends ConsumerStatefulWidget {
   const OnboardingScreen({Key? key}) : super(key: key);
 
   @override
-  State<OnboardingScreen> createState() => _OnboardingScreenState();
+  ConsumerState<OnboardingScreen> createState() => _OnboardingScreenState();
 }
 
-class _OnboardingScreenState extends State<OnboardingScreen> {
+class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
   bool isLoginDialogShown = false;
   late RiveAnimationController btnController;
 
@@ -97,7 +98,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                           isLoginDialogShown = true;
                                         });
                                         customLoginDialog(
-                                          context, onClosed: (_){
+                                          context,ref, onClosed: (_){
                                           setState(() {
                                             isLoginDialogShown = true;
                                           });
