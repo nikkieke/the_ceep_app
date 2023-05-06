@@ -7,6 +7,7 @@ ThemeData customLightTheme() {
     primaryColor: const Color(0xff73009E),
     indicatorColor: const Color(0xFF807A6B),
     scaffoldBackgroundColor: Color(0xffFAF9F6),
+    textTheme: ThemeData.light().textTheme,
     primaryIconTheme: lightTheme.primaryIconTheme.copyWith(
       color: Colors.white,
       size: 20,
