@@ -126,7 +126,7 @@ Widget carouselContainer(RiveAnimation child, String titleText, String subtitleT
       SizedBox(
         width: 300,
         child: AppText(text: subtitleText, fontWeight: FontWeight.w400,size: 15,
-          color: Colors.black45, textAlign: TextAlign.center,),
+           textAlign: TextAlign.center,),
       ),
 
     ],
