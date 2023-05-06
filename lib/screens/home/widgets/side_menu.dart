@@ -1,25 +1,29 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rive/rive.dart';
 import 'package:the_ceep_app/core/app_text.dart';
 import 'package:the_ceep_app/models/rive_assets_bottom_nav.dart';
 import 'package:the_ceep_app/screens/home/widgets/side_menu_tile.dart';
 
+import '../../../core/lightmode_notifier.dart';
 import '../../../core/utils/rive_utils.dart';
 import 'info_card.dart';
 
-class SideMenu extends StatefulWidget {
+class SideMenu extends ConsumerStatefulWidget {
   const SideMenu({Key? key}) : super(key: key);
 
   @override
-  State<SideMenu> createState() => _SideMenuState();
+  ConsumerState<SideMenu> createState() => _SideMenuState();
 }
 
-class _SideMenuState extends State<SideMenu> {
+class _SideMenuState extends ConsumerState<SideMenu> {
+
   RiveAssets selectedMenu = sideMenu.first;
   @override
   Widget build(BuildContext context) {
+    var lightMode = ref.watch(lightModeProvider);
     return Scaffold(
       body: Container(
           width: 288.w,
@@ -76,6 +80,17 @@ class _SideMenuState extends State<SideMenu> {
                     },
                     isActive: selectedMenu == menu,
                   )),
+                  SizedBox(
+                    height: 70.h,
+                  ),
+                  IconButton(
+                    icon:lightMode? const Icon(Icons.brightness_4, color: Colors.white,size: 25,):
+                    const Icon(Icons.dark_mode, color: Colors.white,size: 25,),
+                    tooltip: "Switch between light and dark mode",
+                    onPressed: () {
+                      ref.read(lightModeProvider.notifier).toggle();
+                    }
+                  ),
                 ],
               ),
             ),
