@@ -1,9 +1,11 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../core/app_text.dart';
+import '../../../core/lightmode_notifier.dart';
 
-class ListCard extends StatelessWidget {
+class ListCard extends ConsumerWidget {
   final Icon icon;
   final AppText appText;
 
@@ -12,13 +14,14 @@ class ListCard extends StatelessWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    var lightMode = ref.watch(lightModeProvider);
     return Padding(
       padding: const EdgeInsets.only(top: 10, left: 20, right: 20),
       child: Card(
         elevation: 5,
         shadowColor: Colors.black45,
-        color: Colors.white,
+        color: lightMode? Colors.white: Colors.black26,
         child: Padding(
           padding: const EdgeInsets.all(20),
           child: Row(
@@ -32,7 +35,7 @@ class ListCard extends StatelessWidget {
                       height: 25.h,
                       width: 25.w,
                       decoration:   BoxDecoration(
-                        color: Colors.purple[50],
+                        color: lightMode? Colors.purple[50]: Colors.purple,
                         borderRadius: const BorderRadius.all(Radius.circular(5)),
                       ),
                       child: icon,
