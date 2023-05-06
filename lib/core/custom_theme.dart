@@ -6,7 +6,7 @@ ThemeData customLightTheme() {
   return lightTheme.copyWith(
     primaryColor: const Color(0xff73009E),
     indicatorColor: const Color(0xFF807A6B),
-    scaffoldBackgroundColor: const Color(0xFFF5F5F5),
+    scaffoldBackgroundColor: Color(0xffFAF9F6),
     primaryIconTheme: lightTheme.primaryIconTheme.copyWith(
       color: Colors.white,
       size: 20,
@@ -24,6 +24,8 @@ ThemeData customLightTheme() {
 ThemeData customDarkTheme() {
   final ThemeData darkTheme = ThemeData.dark();
   return darkTheme.copyWith(
+    scaffoldBackgroundColor: Color(0xff121212),
+    textTheme: ThemeData.dark().textTheme,
     primaryColor: const Color(0xff73009E),
     indicatorColor: const Color(0xFF807A6B),
     primaryIconTheme: darkTheme.primaryIconTheme.copyWith(
