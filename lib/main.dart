@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:the_ceep_app/screens/onboarding/onboarding_screen.dart';
 import 'package:the_ceep_app/screens/onboarding/splashscreen.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'core/custom_theme.dart';
+import 'core/lightmode_notifier.dart';
 
 void main() async {
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerWidget  {
   const MyApp({super.key});
 
   // This widget is the root of your application.
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    var lightMode = ref.watch(lightModeProvider);
     return ScreenUtilInit(
         designSize: const Size(360, 640),
         minTextAdapt: true,
@@ -22,9 +24,9 @@ class MyApp extends StatelessWidget {
         builder: (context, child) {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
-            //darkTheme: customDarkTheme(),
+            darkTheme: customDarkTheme(),
             theme: customLightTheme(),
-            themeMode: ThemeMode.system,
+            themeMode: lightMode? ThemeMode.light: ThemeMode.dark,
             title: 'Flutter Demo',
             home: const SplashScreen(),
           );
