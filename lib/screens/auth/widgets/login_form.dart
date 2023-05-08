@@ -17,7 +17,7 @@ class LoginForm extends StatefulWidget {
 }
 
 class _LoginFormState extends State<LoginForm> {
-  final formKey = GlobalKey<FormBuilderState>();
+  GlobalKey<FormBuilderState> formKey = GlobalKey<FormBuilderState>();
 
   bool isShowLoading = false;
 
@@ -77,7 +77,7 @@ class _LoginFormState extends State<LoginForm> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                FormBuilderTextField(
+                TextFormField(
                   validator: (value){
                     if(value!.isEmpty){
                       return "";
@@ -85,7 +85,6 @@ class _LoginFormState extends State<LoginForm> {
                     return null;
                   },
                   onSaved: (email){},
-                  name: 'email',
                   decoration: AuthWidgets().textInputDecoration(
                       "Email Address", "Enter your email"
                   ),
@@ -94,7 +93,7 @@ class _LoginFormState extends State<LoginForm> {
                 SizedBox(
                   height: 10.h,
                 ),
-                FormBuilderTextField(
+                TextFormField(
                   validator: (value){
                     if(value!.isEmpty){
                       return "";
@@ -103,7 +102,6 @@ class _LoginFormState extends State<LoginForm> {
                   },
                   obscureText: true,
                   onSaved: (password){},
-                  name: 'password',
                   decoration: AuthWidgets().textInputDecoration(
                       "Password", "Enter your password"
                   ),
