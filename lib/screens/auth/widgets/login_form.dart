@@ -1,22 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rive/rive.dart';
 
 import '../../../core/app_text.dart';
+import '../../../core/lightmode_notifier.dart';
 import '../../../core/utils/rive_utils.dart';
 import '../../home/widgets/entry_point.dart';
 import 'authwidgets.dart';
 import 'button.dart';
 
-class LoginForm extends StatefulWidget {
+class LoginForm extends ConsumerStatefulWidget {
   const LoginForm({Key? key}) : super(key: key);
 
   @override
-  State<LoginForm> createState() => _LoginFormState();
+  ConsumerState<LoginForm> createState() => _LoginFormState();
 }
 
-class _LoginFormState extends State<LoginForm> {
+class _LoginFormState extends ConsumerState<LoginForm> {
   GlobalKey<FormBuilderState> formKey = GlobalKey<FormBuilderState>();
 
   bool isShowLoading = false;
@@ -68,6 +70,7 @@ class _LoginFormState extends State<LoginForm> {
 
   @override
   Widget build(BuildContext context) {
+    var lightMode = ref.watch(lightModeProvider);
     return Stack(
       children: [
         FormBuilder(
@@ -86,7 +89,9 @@ class _LoginFormState extends State<LoginForm> {
                   },
                   onSaved: (email){},
                   decoration: AuthWidgets().textInputDecoration(
-                      "Email Address", "Enter your email"
+                      "Email Address", "Enter your email",
+                      lightMode? const TextStyle(color: Colors.black26) :
+                      const TextStyle(color: Colors.white70)
                   ),
 
                 ),
@@ -103,7 +108,9 @@ class _LoginFormState extends State<LoginForm> {
                   obscureText: true,
                   onSaved: (password){},
                   decoration: AuthWidgets().textInputDecoration(
-                      "Password", "Enter your password"
+                      "Password", "Enter your password",
+                      lightMode? const TextStyle(color: Colors.black26) :
+                  const TextStyle(color: Colors.white70)
                   ),
                 ),
                 SizedBox(
