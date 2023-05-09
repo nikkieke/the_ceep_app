@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 import '../../../core/app_text.dart';
 
 class AuthWidgets{
-  InputDecoration textInputDecoration([String labelText="", String hintText = "", Widget? suffixIcon,]){
+  InputDecoration textInputDecoration([String labelText="", String hintText = "", TextStyle? textStyle,
+    Widget? suffixIcon, ]){
     return InputDecoration(
       labelText: labelText,
-      labelStyle: const TextStyle(color:Colors.black26),
+      labelStyle: textStyle,
       hintText: hintText,
       fillColor: Colors.white30,
       filled: true,
