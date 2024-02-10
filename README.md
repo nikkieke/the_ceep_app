@@ -19,20 +19,9 @@ CEEP App offers a range of powerful features designed to assist organizations in
 
 CEEP App is built with the following technologies:
 
-- Flutter: A mobile app development framework that allows for the creation of beautiful and fast apps for iOS and Android.
+- Flutter/Dart: A mobile app development framework that allows for the creation of beautiful and fast apps for iOS and Android.
 - Firebase: A cloud-based platform that provides backend services for building web and mobile applications.
 - Rive : A modern tool for designers and developers to create and ship beautiful, interactive animations to any platform
-
-## Contributing
-
-CEEP App is an open-source project, and contributions are welcome. To contribute to the project, follow the steps below:
-
-1. Fork the repository on GitHub.
-2. Clone the forked repository to your local machine.
-3. Create a new branch for your feature or bug fix.
-4. Make changes and test thoroughly.
-5. Commit your changes and push to your forked repository.
-6. Create a pull request to merge your changes into the main repository.
 
 ## License
 
